@@ -70,6 +70,7 @@ function orderAlphabetically(movies) {
       return -1;
     }
   });
+  console.log(alphaOrder);
   let titles = alphaOrder.map((element) => {
     return element.title;
   });
@@ -80,8 +81,7 @@ function orderAlphabetically(movies) {
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 function turnHoursToMinutes(movies) {
-  const newMovies = JSON.parse(JSON.stringify(movies));
-  const durations = newMovies.map((element) => {
+  const durations = movies.map((element) => {
     return element.duration;
   });
   const arr = durations.map((element) => {
@@ -90,28 +90,17 @@ function turnHoursToMinutes(movies) {
   const minutes = arr.map((element) => {
     let hours = Number(element[0]) * 60;
     let minutes = Number(element[1]);
-    let total;
-    if (!!hours && !!minutes) {
-      total = hours + minutes;
-    } else if (hours && !minutes) {
-      total = hours;
-    } else {
-      total = minutes;
-    }
+    let total = hours + minutes;
     return total;
   });
-  for (let i = 0; i < newMovies.length; i++) {
-    newMovies[i].duration = minutes[i];
+  for (let i = 0; i < movies.length; i++) {
+    movies[i].duration = minutes[i];
   }
-  return newMovies;
+  return movies;
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(movies) {
-  const years = movies.map((element) => {
-    return element.year;
-  });
-}
+function bestYearAvg() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

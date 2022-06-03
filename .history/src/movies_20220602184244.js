@@ -70,6 +70,7 @@ function orderAlphabetically(movies) {
       return -1;
     }
   });
+  console.log(alphaOrder);
   let titles = alphaOrder.map((element) => {
     return element.title;
   });

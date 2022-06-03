@@ -70,6 +70,7 @@ function orderAlphabetically(movies) {
       return -1;
     }
   });
+  console.log(alphaOrder);
   let titles = alphaOrder.map((element) => {
     return element.title;
   });
@@ -108,9 +109,7 @@ function turnHoursToMinutes(movies) {
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
 function bestYearAvg(movies) {
-  const years = movies.map((element) => {
-    return element.year;
-  });
+  const years = movies.map((element)=>return (element.year))
 }
 
 // The following is required to make unit tests work.

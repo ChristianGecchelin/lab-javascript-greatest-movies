@@ -70,6 +70,7 @@ function orderAlphabetically(movies) {
       return -1;
     }
   });
+  console.log(alphaOrder);
   let titles = alphaOrder.map((element) => {
     return element.title;
   });
@@ -96,8 +97,9 @@ function turnHoursToMinutes(movies) {
     } else if (hours && !minutes) {
       total = hours;
     } else {
-      total = minutes;
+      total = hours;
     }
+
     return total;
   });
   for (let i = 0; i < newMovies.length; i++) {
@@ -107,11 +109,7 @@ function turnHoursToMinutes(movies) {
 }
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(movies) {
-  const years = movies.map((element) => {
-    return element.year;
-  });
-}
+function bestYearAvg() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

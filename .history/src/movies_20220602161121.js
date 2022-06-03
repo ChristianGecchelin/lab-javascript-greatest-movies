@@ -64,54 +64,16 @@ function orderByYear(movies) {
 function orderAlphabetically(movies) {
   let newMovies = JSON.parse(JSON.stringify(movies));
   const alphaOrder = newMovies.sort((a, b) => {
-    if (a.title > b.title) {
-      return 1;
-    } else {
-      return -1;
-    }
+    return a.title - b.title;
   });
-  let titles = alphaOrder.map((element) => {
-    return element.title;
-  });
-
-  let titles20 = titles.slice(0, 20);
-  return titles20;
+  return { alphaOrder };
 }
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(movies) {
-  const newMovies = JSON.parse(JSON.stringify(movies));
-  const durations = newMovies.map((element) => {
-    return element.duration;
-  });
-  const arr = durations.map((element) => {
-    return element.split('h').join('').split('min').join('').split(' ');
-  });
-  const minutes = arr.map((element) => {
-    let hours = Number(element[0]) * 60;
-    let minutes = Number(element[1]);
-    let total;
-    if (!!hours && !!minutes) {
-      total = hours + minutes;
-    } else if (hours && !minutes) {
-      total = hours;
-    } else {
-      total = minutes;
-    }
-    return total;
-  });
-  for (let i = 0; i < newMovies.length; i++) {
-    newMovies[i].duration = minutes[i];
-  }
-  return newMovies;
-}
+function turnHoursToMinutes() {}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(movies) {
-  const years = movies.map((element) => {
-    return element.year;
-  });
-}
+function bestYearAvg() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */

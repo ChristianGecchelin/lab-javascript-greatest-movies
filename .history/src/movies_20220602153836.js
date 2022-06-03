@@ -49,69 +49,24 @@ function dramaMoviesScore(movies) {
 dramaMoviesScore(movies);
 // Iteration 5: Ordering by year - Order by year, ascending (in growing order)
 function orderByYear(movies) {
-  let newMovies = JSON.parse(JSON.stringify(movies));
-  const yearSort = newMovies.sort((a, b) => {
-    if (a.year !== b.year) {
+  const yearSort = movies.sort((a, b) => {
+    if (a.name !== b.name) {
       return a.year - b.year;
     } else {
-      return a.title.localeCompare(b.title);
+      return a.name - b.name;
     }
   });
   return yearSort;
 }
 
 // Iteration 6: Alphabetic Order - Order by title and print the first 20 titles
-function orderAlphabetically(movies) {
-  let newMovies = JSON.parse(JSON.stringify(movies));
-  const alphaOrder = newMovies.sort((a, b) => {
-    if (a.title > b.title) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-  let titles = alphaOrder.map((element) => {
-    return element.title;
-  });
-
-  let titles20 = titles.slice(0, 20);
-  return titles20;
-}
+function orderAlphabetically() {}
 
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
-function turnHoursToMinutes(movies) {
-  const newMovies = JSON.parse(JSON.stringify(movies));
-  const durations = newMovies.map((element) => {
-    return element.duration;
-  });
-  const arr = durations.map((element) => {
-    return element.split('h').join('').split('min').join('').split(' ');
-  });
-  const minutes = arr.map((element) => {
-    let hours = Number(element[0]) * 60;
-    let minutes = Number(element[1]);
-    let total;
-    if (!!hours && !!minutes) {
-      total = hours + minutes;
-    } else if (hours && !minutes) {
-      total = hours;
-    } else {
-      total = minutes;
-    }
-    return total;
-  });
-  for (let i = 0; i < newMovies.length; i++) {
-    newMovies[i].duration = minutes[i];
-  }
-  return newMovies;
-}
+function turnHoursToMinutes() {}
 
 // BONUS - Iteration 8: Best yearly score average - Best yearly score average
-function bestYearAvg(movies) {
-  const years = movies.map((element) => {
-    return element.year;
-  });
-}
+function bestYearAvg() {}
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
